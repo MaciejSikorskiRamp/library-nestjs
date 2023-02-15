@@ -12,7 +12,7 @@ export class Title extends TinyTypeOf<string>() {
       'Title',
       title,
       isString(),
-      Predicate.to('not be empty', (value) => value !== '')
+      Predicate.to('nott be empty', (value) => value !== '')
     );
   }
 }

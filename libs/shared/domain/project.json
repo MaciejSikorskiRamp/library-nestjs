@@ -1,10 +1,11 @@
 {
-  "root": "libs/shared/domain",
+  "name": "shared-domain",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/domain/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/shared/domain",
@@ -23,9 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/domain"],
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/domain"],
       "options": {
-        "jestConfig": "libs/shared/domain/jest.config.js",
+        "jestConfig": "libs/shared/domain/jest.config.ts",
         "passWithNoTests": true
       }
     }

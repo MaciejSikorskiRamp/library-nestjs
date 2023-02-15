@@ -1,16 +1,19 @@
 {
-  "root": "apps/library",
+  "name": "library",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "apps/library/src",
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:build",
+      "executor": "@nrwl/webpack:webpack",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/apps/library",
         "main": "apps/library/src/main.ts",
         "tsConfig": "apps/library/tsconfig.app.json",
-        "assets": ["apps/library/src/assets"]
+        "assets": ["apps/library/src/assets"],
+        "target": "node",
+        "compiler": "tsc"
       },
       "configurations": {
         "production": {
@@ -27,7 +30,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:execute",
+      "executor": "@nrwl/node:node",
       "options": {
         "buildTarget": "library:build"
       }
@@ -41,9 +44,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/library"],
+      "outputs": ["{workspaceRoot}/coverage/apps/library"],
       "options": {
-        "jestConfig": "apps/library/jest.config.js",
+        "jestConfig": "apps/library/jest.config.ts",
         "passWithNoTests": true
       }
     }

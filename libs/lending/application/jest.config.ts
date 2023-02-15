@@ -1,4 +1,5 @@
-module.exports = {
+/* eslint-disable */
+export default {
   displayName: 'lending-application',
   preset: '../../../jest.preset.js',
   globals: {

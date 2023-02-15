@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'lending-domain',
+/* eslint-disable */
+export default {
+  displayName: 'shared-infrastructure-nestjs-cqrs-events',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,6 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/lending/domain',
+  coverageDirectory:
+    '../../../coverage/libs/shared/infrastructure-nestjs-cqrs-events',
 };

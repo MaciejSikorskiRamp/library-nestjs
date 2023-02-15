@@ -14,7 +14,7 @@ class Fixtures {
     // use init
   }
   static init(): Fixtures {
-    jest.useFakeTimers().setSystemTime(new Date('2021-01-01').getTime());
+    jest.useFakeTimers();
     return new Fixtures();
   }
   GivenPatronWithManyHolds(): Patron {

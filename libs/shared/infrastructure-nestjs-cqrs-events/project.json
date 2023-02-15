@@ -1,10 +1,11 @@
 {
-  "root": "libs/shared/infrastructure-nestjs-cqrs-events",
+  "name": "shared-infrastructure-nestjs-cqrs-events",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/shared/infrastructure-nestjs-cqrs-events/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/shared/infrastructure-nestjs-cqrs-events",
@@ -25,9 +26,11 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/shared/infrastructure-nestjs-cqrs-events"],
+      "outputs": [
+        "{workspaceRoot}/coverage/libs/shared/infrastructure-nestjs-cqrs-events"
+      ],
       "options": {
-        "jestConfig": "libs/shared/infrastructure-nestjs-cqrs-events/jest.config.js",
+        "jestConfig": "libs/shared/infrastructure-nestjs-cqrs-events/jest.config.ts",
         "passWithNoTests": true
       }
     }

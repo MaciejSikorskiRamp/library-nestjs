@@ -1,10 +1,11 @@
 {
-  "root": "libs/catalogue",
+  "name": "catalogue",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/catalogue/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/catalogue",
@@ -23,9 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/catalogue"],
+      "outputs": ["{workspaceRoot}/coverage/libs/catalogue"],
       "options": {
-        "jestConfig": "libs/catalogue/jest.config.js",
+        "jestConfig": "libs/catalogue/jest.config.ts",
         "passWithNoTests": true
       }
     }

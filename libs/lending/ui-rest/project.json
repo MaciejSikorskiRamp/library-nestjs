@@ -1,5 +1,6 @@
 {
-  "root": "libs/lending/ui-rest",
+  "name": "lending-ui-rest",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/lending/ui-rest/src",
   "projectType": "library",
   "targets": {
@@ -12,9 +13,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/lending/ui-rest"],
+      "outputs": ["{workspaceRoot}/coverage/libs/lending/ui-rest"],
       "options": {
-        "jestConfig": "libs/lending/ui-rest/jest.config.js",
+        "jestConfig": "libs/lending/ui-rest/jest.config.ts",
         "passWithNoTests": true
       }
     }

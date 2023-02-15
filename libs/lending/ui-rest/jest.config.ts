@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'shared-domain',
+/* eslint-disable */
+export default {
+  displayName: 'lending-ui-rest',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,5 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/shared/domain',
+  coverageDirectory: '../../../coverage/libs/lending/ui-rest',
 };

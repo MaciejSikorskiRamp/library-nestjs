@@ -1,5 +1,6 @@
-module.exports = {
-  displayName: 'shared-infrastructure-nestjs-cqrs-events',
+/* eslint-disable */
+export default {
+  displayName: 'shared-domain',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
@@ -11,6 +12,5 @@ module.exports = {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory:
-    '../../../coverage/libs/shared/infrastructure-nestjs-cqrs-events',
+  coverageDirectory: '../../../coverage/libs/shared/domain',
 };

@@ -1,10 +1,11 @@
 {
-  "root": "libs/lending/application",
+  "name": "lending-application",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/lending/application/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/lending/application",
@@ -23,9 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/lending/application"],
+      "outputs": ["{workspaceRoot}/coverage/libs/lending/application"],
       "options": {
-        "jestConfig": "libs/lending/application/jest.config.js",
+        "jestConfig": "libs/lending/application/jest.config.ts",
         "passWithNoTests": true
       }
     }

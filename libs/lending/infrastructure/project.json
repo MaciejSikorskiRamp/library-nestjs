@@ -1,10 +1,11 @@
 {
-  "root": "libs/lending/infrastructure",
+  "name": "lending-infrastructure",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/lending/infrastructure/src",
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:package",
+      "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
         "outputPath": "dist/libs/lending/infrastructure",
@@ -23,9 +24,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/lending/infrastructure"],
+      "outputs": ["{workspaceRoot}/coverage/libs/lending/infrastructure"],
       "options": {
-        "jestConfig": "libs/lending/infrastructure/jest.config.js",
+        "jestConfig": "libs/lending/infrastructure/jest.config.ts",
         "passWithNoTests": true
       }
     }
