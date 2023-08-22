@@ -17,6 +17,10 @@
                 "onlyDependOnLibsWithTags": ["*"]
               },
               {
+                "sourceTag": "domain:catalogue",
+                "onlyDependOnLibsWithTags": ["domain:catalogue", "domain:shared"]
+              },
+              {
                 "sourceTag": "domain:lending",
                 "onlyDependOnLibsWithTags": ["domain:catalogue", "domain:lending", "domain:shared"]
               }
