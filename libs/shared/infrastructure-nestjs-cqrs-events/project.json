@@ -35,5 +35,5 @@
       }
     }
   },
-  "tags": ["type:infrastructure"]
+  "tags": ["domain:shared", "type:infrastructure"]
 }

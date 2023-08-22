@@ -45,7 +45,7 @@ describe('PatronRepository', () => {
 
   describe('Given patron', () => {
     let patronTypeOrmRepo: Repository<PatronEntity>;
-    const patronId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
+    const patronId = '55760e4e-9aa9-4754-ae26-159df2fd03de';
     beforeAll(async () => {
       patronTypeOrmRepo = moduleRef.get(getRepositoryToken(PatronEntity));
       await patronTypeOrmRepo.insert(
@@ -63,8 +63,8 @@ describe('PatronRepository', () => {
 
     describe('And available book', () => {
       let bookRepo: Repository<BookEntity>;
-      const bookId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
-      const libraryBranchId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
+      const bookId = '55760e4e-9aa9-4754-ae26-159df2fd03de';
+      const libraryBranchId = '55760e4e-9aa9-4754-ae26-159df2fd03de';
 
       beforeAll(async () => {
         bookRepo = moduleRef.get(getRepositoryToken(BookEntity));
@@ -105,7 +105,7 @@ describe('PatronRepository', () => {
           });
 
           it('should add record to holds table', async () => {
-            expect(await holdsRepo.count({ patronId })).toBe(1);
+            expect(await holdsRepo.countBy({ patronId })).toBe(1);
           });
         });
       });
@@ -115,7 +115,7 @@ describe('PatronRepository', () => {
   describe('Given patron', () => {
     describe('And his book on hold', () => {
       let patronTypeOrmRepo: Repository<PatronEntity>;
-      const patronId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
+      const patronId = '55760e4e-9aa9-4754-ae26-159df2fd03de';
 
       beforeAll(async () => {
         bookRepo = moduleRef.get(getRepositoryToken(BookEntity));
@@ -149,8 +149,8 @@ describe('PatronRepository', () => {
       });
 
       let bookRepo: Repository<BookEntity>;
-      const bookId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
-      const libraryBranchId = '55760e4e-9aa9-4754-ae26-159df2fd03dd';
+      const bookId = '55760e4e-9aa9-4754-ae26-159df2fd03dc';
+      const libraryBranchId = '55760e4e-9aa9-4754-ae26-159df2fd03de';
 
       describe('publish', () => {
         describe('BookHoldCanceled', () => {

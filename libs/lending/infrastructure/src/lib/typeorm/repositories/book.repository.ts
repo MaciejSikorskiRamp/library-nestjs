@@ -30,14 +30,14 @@ export class BookRepo
 
   async findById(id: BookId): Promise<Option<Book>> {
     return pipe(
-      option.fromNullable(await this.bookRepo.findOne(id.value)),
+      option.fromNullable(await this.bookRepo.findOneBy({ bookId: id.value })),
       option.map((book) => book.toDomainModel())
     );
   }
 
   async findBookOnHold(
     bookId: BookId,
-    patronId: PatronId
+    _patronId: PatronId
   ): Promise<option.Option<BookOnHold>> {
     const maybeBook = await this.findById(bookId);
     return pipe(
@@ -75,7 +75,10 @@ export class BookRepo
     const result = await pipe(
       maybeBook,
       option.match(
-        () => this.inserNew(book),
+        async () => {
+          await this.inserNew(book);
+          return 1;
+        },
         () => this.updateOptimistically(book)
       )
     );
@@ -86,7 +89,7 @@ export class BookRepo
       );
     }
 
-    return result;
+    return;
   }
 
   inserNew(book: Book): Promise<void> {
@@ -126,7 +129,7 @@ export class BookRepo
     );
   }
 
-  updateOptimistically(book: Book): any {
+  updateOptimistically(book: Book): Promise<number> {
     switch (book.constructor) {
       case AvailableBook:
         return this.updateAvailableBook(book as AvailableBook);
@@ -137,8 +140,8 @@ export class BookRepo
     }
   }
 
-  async updateAvailableBook(book: AvailableBook): Promise<void> {
-    await this.bookRepo.update(
+  async updateAvailableBook(book: AvailableBook): Promise<number> {
+    const result = await this.bookRepo.update(
       { bookId: book.bookId.value, version: book.version.value },
       BookEntity.restore({
         bookId: book.bookId.value,
@@ -149,10 +152,11 @@ export class BookRepo
         version: book.version.value + 1,
       })
     );
+    return result.affected!;
   }
 
-  async updateBookOnHold(book: BookOnHold): Promise<void> {
-    await this.bookRepo.update(
+  async updateBookOnHold(book: BookOnHold): Promise<number> {
+    const result = await this.bookRepo.update(
       { bookId: book.bookId.value, version: book.version.value },
       BookEntity.restore({
         bookId: book.bookId.value,
@@ -163,5 +167,6 @@ export class BookRepo
         version: book.version.value + 1,
       })
     );
+    return result.affected!;
   }
 }

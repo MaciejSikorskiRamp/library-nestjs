@@ -46,9 +46,7 @@ export class BookEntity {
         return this.toBookOnHold();
       default:
         check = this.state;
-        throw new Error(
-          `Can't map book with state: ${this.state} to any model`
-        );
+        throw new Error(`Can't map book with state: ${check} to any model`);
     }
   }
 

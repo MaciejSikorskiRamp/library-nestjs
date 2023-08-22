@@ -12,6 +12,7 @@ import { pipe } from 'fp-ts/lib/function';
 import { map } from 'fp-ts/lib/Option';
 import { BookRepository } from './ports/book.repository';
 
+//
 @EventsHandler(BookPlacedOnHold, BookPlacedOnHoldEvents)
 export class BookPlacedOnHoldEventHandler
   implements IEventHandler<BookPlacedOnHold | BookPlacedOnHoldEvents>

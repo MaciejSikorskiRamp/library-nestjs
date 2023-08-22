@@ -18,7 +18,7 @@
               },
               {
                 "sourceTag": "domain:lending",
-                "onlyDependOnLibsWithTags": ["domain:lending", "domain:shared"]
+                "onlyDependOnLibsWithTags": ["domain:catalogue", "domain:lending", "domain:shared"]
               }
             ]
           }

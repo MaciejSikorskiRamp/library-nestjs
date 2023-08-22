@@ -29,7 +29,7 @@ describe('Take book on hold', () => {
   });
 
   describe('Given patron', () => {
-    describe('And his book on hold', () => {
+    describe('And this book on hold', () => {
       let patronRepo: Repository<PatronEntity>;
       let bookRepo: Repository<BookEntity>;
       const patronId = '55760e4e-9aa9-4754-ae26-159df2fd03da';
